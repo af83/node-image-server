@@ -1,0 +1,30 @@
+{
+  "name": "node-image-server",
+  "version": "0.0.0",
+  "description": "Node server to serve, convert and resize images on demand.",
+  "main": "index.coffee",
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "edge": "~0.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AF83/node-image-server.git"
+  },
+  "keywords": [
+    "image",
+    "server",
+    "imagemagick",
+    "epeg"
+  ],
+  "author": "victor.goya@af83.com",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "680b1eba051006e8a64f2428fdac7c516eb141de",
+  "bugs": {
+    "url": "https://github.com/AF83/node-image-server/issues"
+  }
+}
