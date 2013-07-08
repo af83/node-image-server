@@ -5,7 +5,6 @@
   "main": "index.coffee",
   "dependencies": {
     "coffee-script": "~1.6.3",
-    "epeg": "~0.7.0",
     "express": "3.x",
     "imagemagick-native": "0.2.3"
   },
@@ -22,8 +21,7 @@
   "keywords": [
     "image",
     "server",
-    "imagemagick",
-    "epeg"
+    "imagemagick"
   ],
   "author": "victor.goya@af83.com",
   "license": "BSD",
