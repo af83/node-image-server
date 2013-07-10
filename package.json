@@ -6,7 +6,9 @@
   "dependencies": {
     "coffee-script": "~1.6.3",
     "express": "3.x",
-    "imagemagick-native": "0.2.3"
+    "imagemagick-native": "~0.2.3",
+    "exif": "~0.3.0",
+    "mmmagic": "~0.3.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1"
