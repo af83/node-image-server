@@ -24,14 +24,11 @@ class Image
   process: (done) ->
     fs.readFile @path, (err, data) =>
       magic.detect data, (err, type) =>
-        if type == "image/jpeg"
-          new ExifImage image: data, (error, exifData) =>
-            # All orientation values between 5 and 8 are left or right sided
-            if exifData && exifData.image.Orientation in [5, 6, 7, 8]
-              [width, height] = [height, width]
-            done @doResize(data), type
-        else
-          done @doResize(data), type
+        switch type
+          when "image/jpeg" then @processJPG data, done
+          when "image/png"  then @processPNG data, done
+          when "image/bmp"  then @processBMP data, done
+          else done()
 
   doResize: (data)->
     imagemagick.convert
@@ -40,5 +37,18 @@ class Image
       height: @height,
       quality: @quality,
       resizeStyle: "fill"    
+
+  processBMP: (data, done) ->
+    done @doResize(data), "image/bmp"
+
+  processPNG: (data, done) ->
+    done @doResize(data), "image/png"
+
+  processJPG: (data, done) ->
+    new ExifImage image: data, (error, exifData) =>
+      # All orientation values between 5 and 8 are left or right sided
+      if exifData && exifData.image.Orientation in [5, 6, 7, 8]
+        [@width, @height] = [@height, @width]
+      done @doResize(data), "image/jpeg"
 
 module.exports = Image
