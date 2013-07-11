@@ -1,11 +1,9 @@
 path = require 'path'
 fs = require 'fs'
 express = require 'express'
-Image = require './image'
 
-config =
-  root: "./public"
-  port: 4000
+Image = require './image'
+config = require './config'
 
 app = express()
 app.get '/*', (req, res) =>
@@ -21,4 +19,5 @@ app.get '/*', (req, res) =>
     res.set('Content-Type', type);
     res.send(data)
 
+console.log "Serve images from #{config.root} on port #{config.port}"
 app.listen config.port
