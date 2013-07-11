@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "mocha": "~1.12",
-    "expect.js": "~0.2.0"
+    "expect.js": "~0.2.0",
+    "gm": "~1.9.0"
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script"
