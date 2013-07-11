@@ -27,19 +27,19 @@ class Image
         switch type
           when "image/jpeg" then @processJPG data, done
           when "image/png"  then @processPNG data, done
-          when "image/bmp"  then @processBMP data, done
-          else done()
+          else @processGeneric data, done
 
-  doResize: (data)->
+  doResize: (data, convert)->
     imagemagick.convert
       srcData: data,
       width: @width,
       height: @height,
       quality: @quality,
-      resizeStyle: "fill"    
+      resizeStyle: "fill",
+      format: convert
 
-  processBMP: (data, done) ->
-    done @doResize(data), "image/bmp"
+  processGeneric: (data, done) ->
+    done @doResize(data, "jpeg"), "image/jpeg"
 
   processPNG: (data, done) ->
     done @doResize(data), "image/png"
