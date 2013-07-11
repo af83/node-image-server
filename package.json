@@ -8,13 +8,15 @@
     "express": "3.x",
     "imagemagick-native": "~0.2.3",
     "exif": "~0.3.0",
-    "mmmagic": "~0.3.1"
+    "mmmagic": "~0.3.1",
+    "epeg": "~0.7.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1"
+    "mocha": "~1.12",
+    "expect.js": "~0.2.0"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "mocha --compilers coffee:coffee-script"
   },
   "repository": {
     "type": "git",
