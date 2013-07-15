@@ -36,7 +36,7 @@ describe 'image', ->
           done()
 
     it "should process a PNG image", (done) ->
-      image = new Image "public/chart.png", 12, 17
+      image = new Image "test/fixtures/test.png", 12, 17
       image.process (data, type) ->
         gm(data).identify (err, identity) ->
           assert.equal type, "image/png"
